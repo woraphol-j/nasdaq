@@ -1,0 +1,73 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceRoot}/bin/www",
+            "stopOnEntry": false,
+            "args": [],
+            "cwd": "${workspaceRoot}",
+            "preLaunchTask": null,
+            "runtimeExecutable": null,
+            "runtimeArgs": [
+                "--nolazy"
+            ],
+            "env": {
+                "NODE_ENV": "development",
+                "DB_HOST": "localhost",
+                "DB_USERNAME": "",
+                "DB_PASSWORD": "",
+                "SMTP_USERNAME": "",
+                "SMTP_PASSWORD": "",
+                "AWS_SECRET_KEY": "",
+                "AWS_KEY": "",
+                "FACEBOOK_CLIENT_ID": "",
+                "FACEBOOK_CLIENT_SECRET": ""
+            },
+            "externalConsole": false,
+            "sourceMaps": false,
+            "outDir": null
+        },
+        {
+            "name": "Attach",
+            "type": "node",
+            "request": "attach",
+            "port": 5858,
+            "address": "localhost",
+            "restart": true,
+            "sourceMaps": false,
+            "outDir": null,
+            "localRoot": "${workspaceRoot}",
+            "remoteRoot": null,
+            "timeout": 100000
+        },
+        {
+			// Name of configuration; appears in the launch configuration drop down menu.
+			"name": "Debug Mocha Test",
+			// Type of configuration. Possible values: "node", "mono".
+			"type": "node",
+            //"address": "localhost",
+            //"port": 5858,
+            //"sourceMaps": false,
+            //"request": "launch",
+            "program": "${workspaceRoot}/node_modules/mocha/bin/_mocha",
+            "stopOnEntry": false,
+            "args": ["--no-timeouts", "--colors", "--recursive"], //you can specify paths to specific tests here
+            "cwd": "${workspaceRoot}",
+            "runtimeExecutable": null
+			// Workspace relative or absolute path to the program.
+			// // Automatically stop program after launch.
+			// "stopOnEntry": false,
+			// // Command line arguments passed to the program.
+			// "args": ["test/unit.js"],
+			// // Workspace relative or absolute path to the working directory of the program being debugged. Default is the current workspace.
+			// "cwd": ".",
+			// // Workspace relative or absolute path to the runtime executable to be used. Default is the runtime executable on the PATH.
+			// "runtimeExecutable": null,
+			// // Environment variables passed to the program.
+			// "env": { "NODE_ENV": "production"}
+		}
+    ]
+}
