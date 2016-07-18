@@ -5,6 +5,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+
+
+
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
@@ -67,6 +70,16 @@ app.use(function (err, req, res, next) {
     error: {}
   });
 });
+
+
+// Setup socket io
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+
+io.on('connection', function (socket) {
+  console.log('a user connected');
+});
+
 
 
 module.exports = app;
