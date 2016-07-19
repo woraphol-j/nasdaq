@@ -5,21 +5,14 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+// Initialize database
+require('./db/knex');
 
 
+// Initialize cron jobs
+require('./crons/scrape-job');
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
 
-var knex = require('knex')({
-  client: 'pg',
-  connection: {
-    host: 'localhost',
-    user: 'recruiter',
-    password: 'recruiter',
-    database: 'nasdaq'
-  }
-});
 
 
 
@@ -37,8 +30,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
-app.use('/users', users);
+require('./routes/routes')(app);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -81,5 +73,5 @@ io.on('connection', function (socket) {
 });
 
 
-
+console.info('Server running successfully');
 module.exports = app;

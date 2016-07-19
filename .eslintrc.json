@@ -1,3 +1,9 @@
 {
-    "extends": "google"
+    "extends": "google",
+    "rules": {
+        "indent": 0,
+        "object-curly-spacing": 0,
+        "space-before-function-paren": 0,
+        "max-len": 0
+    }
 }
