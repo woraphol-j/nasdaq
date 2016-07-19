@@ -18,19 +18,17 @@ module.exports = {
     }
   },
 
-  staging: {
-    client: 'postgresql',
+  test: {
+    client: 'pg',
     connection: {
-      database: 'my_db',
-      user: 'username',
-      password: 'password'
-    },
-    pool: {
-      min: 2,
-      max: 10
+      host: 'localhost',
+      user: 'recruiter',
+      password: 'recruiter',
+      database: 'nasdaq_test'
     },
     migrations: {
-      tableName: 'knex_migrations'
+      tableName: 'knex_migrations',
+      directory: path.join(__dirname, '/db/migrations')
     }
   },
 

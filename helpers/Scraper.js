@@ -3,10 +3,12 @@ const request = require('superagent');
 const cheerio = require('cheerio');
 const logger = require('winston');
 const _ = require('lodash');
+// const Promise = require('bluebird');
+// const readFile = Promise.promisify(require("fs").readFile);
 
-exports.scrapeForData = () => {
+exports.scrapeForData = path => {
     return new Promise(function (resolve, reject) {
-        request.get('www.nasdaq.com').then(result => {
+        request.get(path).then(result => {
             let $ = cheerio.load(result.text);
             let data = $('#indexTable script').html();
             let dataArray = data.split('\n');

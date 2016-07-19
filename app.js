@@ -10,10 +10,9 @@ require('./db/knex');
 
 
 // Initialize cron jobs
-require('./crons/scrape-job');
-
-
-
+if (process.env.NODE_ENV !== 'test') {
+  require('./crons/scrape-job');
+}
 
 
 var app = express();

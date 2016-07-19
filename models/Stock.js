@@ -1,11 +1,17 @@
 var knex = require('../db/knex');
+const TABLE = 'stock';
 
 // Create a new stock
 exports.create = stock => {
-    return knex('stock').insert(stock);
+    return knex(TABLE).insert(stock);
 };
 
-// Get a particular comment
-exports.findAll = (id, cb) => {
-    return knex.select('index', 'value', 'changeNet', 'createdAt', 'updatedAt2').from('stock');
+// Retrieve all the stock information
+exports.findAll = () => {
+    return knex.select('index', 'value', 'changeNet', 'createdAt', 'updatedAt').from(TABLE);
+};
+
+// Delete all data in stock table
+exports.deleteAll = () => {
+    return knex(TABLE).del();
 };

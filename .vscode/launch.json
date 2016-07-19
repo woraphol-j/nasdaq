@@ -56,7 +56,10 @@
             "stopOnEntry": false,
             "args": ["--no-timeouts", "--colors", "--recursive"], //you can specify paths to specific tests here
             "cwd": "${workspaceRoot}",
-            "runtimeExecutable": null
+            "runtimeExecutable": null,
+            "env": {
+                "NODE_ENV": "test"
+            }
 			// Workspace relative or absolute path to the program.
 			// // Automatically stop program after launch.
 			// "stopOnEntry": false,

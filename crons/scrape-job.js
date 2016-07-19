@@ -6,10 +6,10 @@ var CronJob = require('cron').CronJob;
 var logger = require('winston');
 const scraper = require('../helpers/Scraper');
 const Stock = require('../models/Stock');
-
+const NASDAQ_SITE = 'www.nasdaq.com';
 
 new CronJob('1 * * * * *', () => {
-    scraper.scrapeForData().then(obj => {
+    scraper.scrapeForData(NASDAQ_SITE).then(obj => {
         return Stock.create(obj);
     }).then(savedData => {
         logger.info(`Saved data from Nasdaq = ${JSON.stringify(savedData)}`);
