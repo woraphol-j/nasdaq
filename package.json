@@ -6,7 +6,7 @@
     "start": "node ./bin/www",
     "pretest_": "eslint .",
     "posttest": "nsp check",
-    "test": "NODE_ENV=test ./node_modules/.bin/mocha --reporter --recursive spec "
+    "test": "NODE_ENV=test ./node_modules/.bin/mocha --recursive"
   },
   "dependencies": {
     "bluebird": "^3.4.1",
