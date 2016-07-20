@@ -17,7 +17,7 @@ exports.scrapeForData = path => {
             let nasdaqData = nasDaqStr[0].split('"');
             logger.debug('nasdaq array raw = ' + nasdaqData);
 
-            var nasdaqObj = {
+            let nasdaqObj = {
                 index: nasdaqData[1],
                 value: nasdaqData[3],
                 changeNet: nasdaqData[7],

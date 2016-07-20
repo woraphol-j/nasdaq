@@ -1,9 +1,10 @@
-var chai = require('chai');
-var expect = chai.expect;
-var logger = require('winston');
-var app = require('../../app');
-var request = require('supertest')(app);
-var Stock = require('../../models/Stock');
+
+const chai = require('chai');
+const assert = chai.assert;
+const logger = require('winston');
+const app = require('../../app');
+const request = require('supertest')(app);
+const Stock = require('../../models/Stock');
 
 describe('Test StockController', function () {
     before(function (done) {
@@ -22,8 +23,13 @@ describe('Test StockController', function () {
             .expect('Content-Type', /json/)
             .expect(200)
             .end(function (err, res) {
-                logger.info(res.body);
-                done();
+                assert.equal(res.body[0].index, 'NASDAQ 1');
+                assert.equal(res.body[0].value, '40.40');
+                assert.equal(res.body[0].changeNet, '1.12');
+                assert.equal(res.body[1].index, 'NASDAQ 2');
+                assert.equal(res.body[1].value, '50.50');
+                assert.equal(res.body[1].changeNet, '2.12');
+                done(err);
             });
     });
 });

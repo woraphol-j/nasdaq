@@ -1,5 +1,5 @@
 {
-  "globalDependencies": {
-    "knex": "registry:dt/knex#0.0.0+20160705134223"
-  }
+	"globalDependencies": {
+		"knex": "registry:dt/knex#0.0.0+20160705134223"
+	}
 }

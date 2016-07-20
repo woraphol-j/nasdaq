@@ -1,7 +1,7 @@
 // var expect = require('chai').expect;
-var logger = require('winston');
-var app = require('../app');
-var request = require('supertest')(app);
+const logger = require('winston');
+const app = require('../app');
+const request = require('supertest')(app);
 
 before(function () {
     logger.info('Initialize server before running tests.');

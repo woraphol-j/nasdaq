@@ -1,10 +1,9 @@
 
-var StockController = require('../controllers/StockController');
+const HomeController = require('../controllers/HomeController');
+const StockController = require('../controllers/StockController');
 
 // Routes
 module.exports = app => {
-  app.get('/', (req, res) => {
-    res.json('ok');
-  });
-  app.get('/api/stocks', StockController.all);
+	app.get('/', HomeController.index);
+	app.get('/api/stocks', StockController.all);
 };
