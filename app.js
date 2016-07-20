@@ -26,10 +26,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-// app.use(express.static(path.join(__dirname, 'public')));
-
-// Set socket.io.js to be publicly accessible
-// app.use('/socketio/scripts', express.static(path.join(__dirname, '/node_modules/socket.io/lib/')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Binding routes to main express app
 require('./routes/routes')(app);
@@ -65,18 +62,20 @@ app.use(function (err, req, res, next) {
 	});
 });
 
-// Setup websocket
-// require('./socket/socket-setup.js');
-const http = require('http').Server(app);
-const io = require('socket.io')(http);
-const events = require('events');
-const eventEmitter = new events.EventEmitter();
 
-io.on('connection', function (socket) {
-    eventEmitter.on('nasdaq:trigger', stockData => {
-        socket.emit('nasdaq:chart', stockData);
-    });
-});
+
+
+// const http = require('http').Server(app);
+// const io = require('socket.io')(http);
+// const events = require('events');
+// const eventEmitter = new events.EventEmitter();
+
+// io.on('connection', function (socket) {
+//     eventEmitter.on('nasdaq:trigger', stockData => {
+//         socket.emit('nasdaq:chart', stockData);
+//     });
+// });
+
 
 console.info('Server running successfully');
 module.exports = app;
