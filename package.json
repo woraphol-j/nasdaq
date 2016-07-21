@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "pretest_": "eslint .",
-    "test": "NODE_ENV=test ./node_modules/.bin/mocha --recursive"
+    "test": "NODE_ENV=test ./node_modules/.bin/mocha --recursive",
+    "lint": "./node_modules/.bin/eslint .",
+    "build": "echo '=> building...' && npm run lint && npm test"
   },
   "dependencies": {
     "bluebird": "^3.4.1",
@@ -18,7 +19,6 @@
     "jade": "~1.11.0",
     "knex": "^0.11.5",
     "lodash": "^4.13.1",
-    "morgan": "~1.7.0",
     "pg": "^6.0.2",
     "serve-favicon": "~2.3.0",
     "socket.io": "^1.4.8",
@@ -28,7 +28,6 @@
   "devDependencies": {
     "eslint": "^3.0.0",
     "eslint-config-google": "^0.6.0",
-    "nsp": "^2.1.0",
     "mocha": "^2.5.3",
     "chai": "^3.5.0",
     "supertest": "^1.2.0"

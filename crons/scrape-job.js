@@ -1,3 +1,4 @@
+'use strict';
 
 const CronJob = require('cron').CronJob;
 const logger = require('winston');

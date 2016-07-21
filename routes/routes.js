@@ -1,3 +1,4 @@
+'use strict';
 
 const HomeController = require('../controllers/HomeController');
 const StockController = require('../controllers/StockController');

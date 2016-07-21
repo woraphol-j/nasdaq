@@ -1,20 +1,21 @@
+'use strict';
+
 const chai = require('chai');
-const expect = chai.expect;
-const logger = require('winston');
+const assert = chai.assert;
 const Scraper = require('../../helpers/Scraper');
 const path = require('path');
+const Promise = require('bluebird');
+const readFile = Promise.promisify(require("fs").readFile);
 
-describe('Test Scraper module', function () {
-    it('should extract correct stock information from html file', function (done) {
-        let nasdaqMockPath = path.join('file:////', '/', __dirname, 'nasdaq-mock.html');
-        nasdaqMockPath = "file:///home/woraphol/Dev/nodejs_workspace/nasdaq/test/helpers/nasdaq-mock.html";
-
-        Scraper.scrapeForData(nasdaqMockPath).then(data => {
-            logger.info('test = ' + data);
+describe('Test Scraper', function () {
+    it('should extract correct stock information from the raw html data from nasdaq.com', function (done) {
+        let nasdaqMockPath = path.join(__dirname, 'nasdaq-mock.html');
+        readFile(nasdaqMockPath, "utf-8").then(rawHtml => {
+            let stockObj = Scraper.scrapeHtml(rawHtml);
+            assert.equal(stockObj.index, 'NASDAQ');
+            assert.equal(stockObj.value, '5038.58');
+            assert.equal(stockObj.changeNet, '0.34');
             done();
-        }).catch(err => {
-            logger.error(err);
-            done(err);
-        });
+        }).catch(done);
     });
 });

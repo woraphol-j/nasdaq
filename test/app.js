@@ -1,4 +1,5 @@
-// var expect = require('chai').expect;
+'use strict';
+
 const logger = require('winston');
 const app = require('../app');
 const request = require('supertest')(app);

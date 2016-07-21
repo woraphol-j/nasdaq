@@ -1,13 +1,27 @@
+'use strict';
 
-// Setup socket io
-const app = require('../app');
-const http = require('http').Server(app);
-const io = require('socket.io')(http);
-const events = require('events');
-const eventEmitter = new events.EventEmitter();
+const eventEmitter = require('./events');
+const Stock = require('../models/Stock');
+const _ = require('lodash');
 
-io.on('connection', function (socket) {
-    eventEmitter.on('nasdaq:trigger', stockData => {
-        socket.emit('nasdaq:chart', stockData);
+var setup = function (server) {
+    var generateChartDataObj = function (stockList) {
+        let result = {
+            labels: _.reverse(_.map(stockList, 'createdAt')),
+            data: _.reverse(_.map(stockList, 'value'))
+        };
+        return result;
+    };
+
+    const io = require('socket.io')(server);
+    io.on('connection', socket => {
+        Stock.findAll().then(stockList => {
+            socket.emit('nasdaq:chart', generateChartDataObj(stockList));
+        });
+        eventEmitter.on('nasdaq:trigger', stockList => {
+            socket.emit('nasdaq:chart', generateChartDataObj(stockList));
+        });
     });
-});
+};
+
+module.exports = setup;

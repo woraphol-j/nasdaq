@@ -1,3 +1,4 @@
+'use strict';
 
 const Stock = require('../models/Stock');
 

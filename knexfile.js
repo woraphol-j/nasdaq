@@ -1,4 +1,4 @@
-// Update with your config settings.
+'use strict';
 
 const path = require('path');
 
@@ -16,7 +16,6 @@ module.exports = {
 			directory: path.join(__dirname, '/db/migrations')
 		}
 	},
-
 	test: {
 		client: 'pg',
 		connection: {
@@ -29,22 +28,5 @@ module.exports = {
 			tableName: 'knex_migrations',
 			directory: path.join(__dirname, '/db/migrations')
 		}
-	},
-
-	production: {
-		client: 'postgresql',
-		connection: {
-			database: 'my_db',
-			user: 'username',
-			password: 'password'
-		},
-		pool: {
-			min: 2,
-			max: 10
-		},
-		migrations: {
-			tableName: 'knex_migrations'
-		}
 	}
-
 };
