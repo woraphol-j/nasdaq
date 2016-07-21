@@ -9,7 +9,7 @@ The following is the main functions the application does:
 2. Create RESTful web service to provide those data to a front end.
 
 ## Live Demo
-However, to make it easier for viewers to see how the application works in action. I also created the index page which is basically the html page with some simple javascript 
+To make it easier for viewers to see how the application works in action, I also created the index page which is basically the html page with some simple javascript 
 code to initialize chartjs. The chart is periodically updated in real time using websocket (Socket.IO). On the backend, as soon as 
 the new stock data is fetched and extracted from Nasdaq.com, the html page will immediately receive the latest data without requiring the manual refresh.
 
