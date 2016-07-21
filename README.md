@@ -14,7 +14,7 @@ code to initialize chartjs. The chart is periodically updated in real time using
 the new stock data is fetched and extracted from Nasdaq.com, the html page will immediately receive the latest data without requiring the manual refresh.
 
 To provide the live demo, the application is deployed to **AWS Beanstalk** with **AWS-RDS backed Postgresql database** at the following URL:
-
+[http://nasdaq-dev.ap-southeast-1.elasticbeanstalk.com/](http://nasdaq-dev.ap-southeast-1.elasticbeanstalk.com/)
 
 ## Getting Started
 ### Prerequisite
