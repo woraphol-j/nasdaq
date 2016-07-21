@@ -32,8 +32,9 @@ To provide the live demo, the application is deployed to **AWS Beanstalk** with 
 
 ### API
 The application exposes the following API for any client to consume:
-| API endpoint        | description  |
-| -------------  |:-------------:|
+
+| API endpoint     | Description  |
+| -----------------|:-------------:|
 | /api/stocks      | retrieve the most recent 20 stock entries saved in the database. |
 
 ## Technologies demonstrated
