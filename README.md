@@ -4,6 +4,7 @@
 ## About the project
 This project is neatly designed and built to demonstrate the use of Node.js and its ecosystem frameworks and libraries for building a simple yet functional web application. 
 The following is the main functions the application does:
+
 1. Periodically scrape http://www.nasdaq.com/, parse out the index value of the Nasdaq, and store the result in the database.  
 2. Create RESTful web service to provide those data to a front end.
 
@@ -11,7 +12,8 @@ The following is the main functions the application does:
 However, to make it easier for viewers to see how the application works in action. I also created the index page which is basically the html page with some simple javascript 
 code to initialize chartjs. The chart is periodically updated in real time using websocket (Socket.IO). On the backend, as soon as 
 the new stock data is fetched and extracted from Nasdaq.com, the html page will immediately receive the latest data without requiring the manual refresh.
-To provide the live demo, the application is deployed to AWS Beanstalk with Postgresql AWS-RDS backed database at the following URL:
+
+To provide the live demo, the application is deployed to **AWS Beanstalk** with **AWS-RDS backed Postgresql database** at the following URL:
 
 
 ## Getting Started
@@ -20,7 +22,7 @@ To provide the live demo, the application is deployed to AWS Beanstalk with Post
 1. **Node 6+** to take advantage of ES2015, I decided to use Node 6 which is the latest generation of Node.js.
 2. **Postgresql** for development and testing databases.
 
-### installation
+### Installation
 1. Clone the project from this Github repo.
 2. Create new databases for development and testing purposes in Postgresql.
 3. Update the knexfile.js at the root level of the project to reflect the. 
@@ -95,5 +97,6 @@ improve the code in both readability and integrity.
 ## Room for improvement
 The project is quickly built to demonstrate the basic features of Node.js and its ecosystem libraries. Although most of the code in the project follows best 
 practices from industry experts, there are still somethings that can be improved as follows: 
+
 1. For security reasons, it is a good practice to pass sensitive information such as database credentials via Environment variable as opposed to specifying it explicitly in 
 the config file(knexfile.js in this case). In this project, I keep it in the knexfile.js for the sake of simplicity.
