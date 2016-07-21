@@ -25,7 +25,7 @@ To provide the live demo, the application is deployed to **AWS Beanstalk** with 
 ### Installation
 1. Clone the project from this Github repo.
 2. Create new databases for development and testing purposes in Postgresql.
-3. Update the knexfile.js at the root level of the project to reflect the. 
+3. Update the knexfile.js at the root level of the project to point to both development and testing databases you created in the previous step. 
 4. Run the command: npm install.
 5. Run the command: npm start.
 6. The server should start up and the application will be available on localhost:3000.
